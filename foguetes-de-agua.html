@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Foguetes de Água · ISEP Annual Challenge 2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F3F8FB;--surface:#FFFFFF;--ink:#0B2545;--muted:#4A6178;--line:#C9DAE6;--water:#1F7A9E;--rocket:#E8512B;--sun:#F5C542;--hero:#0B2545;--hero-ink:#F3F8FB;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0A1A2E;--surface:#10263D;--ink:#EAF3F9;--muted:#9DB4C6;--line:#24425C;--water:#5BB6D8;--hero:#06111F;--hero-ink:#EAF3F9}}
+:root[data-theme="dark"]{--bg:#0A1A2E;--surface:#10263D;--ink:#EAF3F9;--muted:#9DB4C6;--line:#24425C;--water:#5BB6D8;--hero:#06111F;--hero-ink:#EAF3F9}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:60px}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.05rem/1.6 Figtree,system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque",Figtree,system-ui,sans-serif;line-height:1.1;margin:0 0 .5em}
+h2{font-size:clamp(1.7rem,4vw,2.4rem);font-weight:800}
+h3{font-size:1.2rem;font-weight:700}
+a{color:var(--water)}
+a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+.wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--hero);color:var(--hero-ink)}
+nav .wrap{display:flex;gap:18px;overflow-x:auto;padding:12px 20px;white-space:nowrap;font-size:.95rem}
+nav a{color:var(--hero-ink);text-decoration:none;opacity:.85}
+nav a:hover{opacity:1;text-decoration:underline}
+nav b{font-family:"Bricolage Grotesque",sans-serif;margin-right:8px}
+.hero{background:var(--hero);color:var(--hero-ink);padding:56px 0 0;overflow:hidden}
+.hero h1{font-size:clamp(2.6rem,9vw,5.2rem);font-weight:800;letter-spacing:-.02em;max-width:11ch}
+.hero p{max-width:46ch;font-size:1.15rem;opacity:.9}
+.tag{display:inline-block;background:var(--sun);color:#0B2545;font-weight:600;padding:4px 12px;border-radius:99px;font-size:.9rem;margin-bottom:18px}
+.btn{display:inline-block;background:var(--rocket);color:#fff;font-weight:600;padding:12px 22px;border-radius:10px;text-decoration:none;margin:8px 10px 8px 0}
+.btn.alt{background:transparent;border:2px solid var(--hero-ink);color:var(--hero-ink)}
+.arc{display:block;width:100%;height:auto;margin-top:16px}
+section{padding:56px 0}
+.lead{color:var(--muted);max-width:60ch}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));margin-top:20px}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px}
+.box h3{margin-bottom:.3em}
+.box p{margin:0;color:var(--muted)}
+.steps{counter-reset:s;list-style:none;padding:0;margin:20px 0 0;display:grid;gap:12px}
+.steps li{counter-increment:s;display:flex;gap:16px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 20px}
+.steps li::before{content:counter(s);flex:none;width:34px;height:34px;border-radius:50%;background:var(--water);color:#fff;font:700 1rem "Bricolage Grotesque",sans-serif;display:grid;place-items:center}
+.scroll{overflow-x:auto;margin-top:20px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:480px}
+th,td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:"Bricolage Grotesque",sans-serif;color:var(--water)}
+tr:last-child td{border-bottom:0}
+.tbd{color:var(--rocket);font-weight:600}
+.bar{display:flex;height:64px;border-radius:12px;overflow:hidden;margin-top:20px;font-weight:600;color:#fff}
+.bar div{display:flex;flex-direction:column;justify-content:center;padding:0 12px;min-width:0;font-size:.9rem}
+.bar small{font-weight:400;opacity:.9}
+.calc{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));margin-top:16px}
+label{display:block;font-size:.9rem;color:var(--muted)}
+input{width:100%;font:inherit;padding:10px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink);margin-top:4px}
+.res{margin-top:14px;font-weight:600}
+.res span{color:var(--rocket)}
+details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin-top:10px}
+summary{cursor:pointer;font-weight:600}
+details p{color:var(--muted);margin:.6em 0 0}
+.safety{background:var(--sun);color:#0B2545}
+.safety .box{background:rgba(255,255,255,.55);border-color:rgba(11,37,69,.25)}
+.safety .box p{color:#0B2545}
+footer{background:var(--hero);color:var(--hero-ink);padding:36px 0 48px;font-size:.95rem}
+footer a{color:var(--sun)}
+</style>
+</head>
+<body>
+<nav><div class="wrap"><b>Foguetes de Água</b><a href="#concurso">Concurso</a><a href="#participar">Participar</a><a href="#calendario">Calendário</a><a href="#foguete">O foguete</a><a href="#pontos">Pontuação</a><a href="#seguranca">Segurança</a><a href="#faq">Perguntas</a></div></nav>
+
+<header class="hero">
+<div class="wrap">
+<span class="tag">ISEP Annual Challenge 2027</span>
+<h1>Foguetes de Água</h1>
+<p>Constrói um foguete que voa só com água e ar comprimido. Lança-o na Final, em abril de 2027, e mostra até onde a tua equipa chega.</p>
+<a class="btn" href="#participar">Como participar</a><a class="btn alt" href="#pontos">Ver pontuação</a>
+<svg class="arc" viewBox="0 0 1000 240" role="img" aria-label="Trajetória de um foguete: altitude medida por triangulação, h igual a d vezes tangente de teta">
+<path d="M80 220 C 260 -40, 520 -40, 700 215" fill="none" stroke="#F5C542" stroke-width="3" stroke-dasharray="8 8"/>
+<line x1="80" y1="220" x2="920" y2="220" stroke="#5BB6D8" stroke-width="3"/>
+<line x1="890" y1="220" x2="390" y2="42" stroke="#EAF3F9" stroke-opacity=".5" stroke-width="2"/>
+<line x1="390" y1="42" x2="390" y2="220" stroke="#EAF3F9" stroke-opacity=".5" stroke-width="2" stroke-dasharray="4 6"/>
+<g transform="translate(390 42) rotate(90)"><rect x="-9" y="-22" width="18" height="38" rx="8" fill="#E8512B"/><path d="M-9 14 L-18 28 L-9 22Z M9 14 L18 28 L9 22Z" fill="#F5C542"/></g>
+<text x="400" y="140" fill="#EAF3F9" font-size="22" font-family="Figtree,sans-serif">h</text>
+<text x="640" y="205" fill="#EAF3F9" font-size="20" font-family="Figtree,sans-serif">d</text>
+<text x="835" y="205" fill="#EAF3F9" font-size="22" font-family="Figtree,sans-serif">θ</text>
+<text x="100" y="196" fill="#F5C542" font-size="18" font-family="Figtree,sans-serif">plataforma</text>
+</svg>
+</div>
+</header>
+
+<section id="concurso"><div class="wrap">
+<h2>Um concurso para o ensino secundário</h2>
+<p class="lead">Organizado pelo Núcleo de Estudantes de Engenharia Física do ISEP. Cada equipa concebe, constrói e lança um foguete, aplicando propulsão, aerodinâmica e estabilidade.</p>
+<div class="grid">
+<div class="box"><h3>Equipas de 2 a 5</h3><p>Estudantes da mesma escola, acompanhados por um docente.</p></div>
+<div class="box"><h3>Inscrição gratuita</h3><p>Sem limite de equipas por escola.</p></div>
+<div class="box"><h3>Um mentor por equipa</h3><p>Estudantes de Engenharia Física esclarecem dúvidas até à Final.</p></div>
+<div class="box"><h3>Final aberta ao público</h3><p>Um único dia, presencial, em abril de 2027.</p></div>
+</div>
+<h3 style="margin-top:36px">Como decorre a Final</h3>
+<ol class="steps">
+<li><span><b>Acreditação e inspeção.</b> Os foguetes são verificados antes de qualquer lançamento.</span></li>
+<li><span><b>Apresentação ao Júri.</b> Até 3 minutos, seguidos de perguntas.</span></li>
+<li><span><b>Lançamentos.</b> Cada equipa tem direito a dois; conta o melhor resultado.</span></li>
+<li><span><b>Classificação e prémios.</b> Resultado provisório, reclamações e entrega de prémios.</span></li>
+</ol>
+</div></section>
+
+<section id="participar" style="background:var(--surface)"><div class="wrap">
+<h2>Como participar</h2>
+<div class="grid">
+<div class="box"><h3>Quem se inscreve</h3><p>O docente responsável, através de um formulário eletrónico da Organização. O prazo ainda está por definir.</p></div>
+<div class="box"><h3>O que inclui</h3><p>Escola, docente e elementos da equipa; declaração de aceitação do Regulamento; autorização do encarregado de educação para menores (pode ser entregue até ao início da Final).</p></div>
+<div class="box"><h3>Confirmação</h3><p>A inscrição só fica concluída com a confirmação enviada por correio eletrónico. Se houver mais equipas do que lugares, entram por ordem de inscrição.</p></div>
+</div>
+<p style="margin-top:20px"><a class="btn" href="#contacto">Contactar a Organização</a></p>
+</div></section>
+
+<section id="calendario"><div class="wrap">
+<h2>Calendário</h2>
+<div class="scroll"><table>
+<tr><th>Etapa</th><th>Data</th></tr>
+<tr><td>Divulgação às escolas</td><td class="tbd">A definir</td></tr>
+<tr><td>Inscrições</td><td class="tbd">Até data a definir</td></tr>
+<tr><td>Construção dos foguetes, com mentores</td><td>Entre a inscrição e a Final</td></tr>
+<tr><td>Entrega da memória descritiva (2 páginas)</td><td class="tbd">Até data a definir</td></tr>
+<tr><td>Final</td><td>Abril de 2027 <span class="tbd">(data a definir)</span></td></tr>
+</table></div>
+</div></section>
+
+<section id="foguete" style="background:var(--surface)"><div class="wrap">
+<h2>O foguete</h2>
+<p class="lead">Propulsão apenas com água e ar comprimido. A pressão de lançamento é igual para todos e aplicada pela Organização.</p>
+<div class="scroll"><table>
+<tr><th>Parâmetro</th><th>Regra</th></tr>
+<tr><td>Reservatório</td><td>Garrafas PET de bebida gaseificada, sem cortes, furos ou alterações que enfraqueçam a parede</td></tr>
+<tr><td>Volume máximo</td><td class="tbd">A definir (L)</td></tr>
+<tr><td>Massa máxima, com água</td><td class="tbd">A definir (kg)</td></tr>
+<tr><td>Pressão de lançamento</td><td class="tbd">A definir (bar)</td></tr>
+<tr><td>Bocal</td><td>Gargalo original, sem alterações</td></tr>
+<tr><td>Ponta</td><td>Macia ou amortecida, por exemplo em espuma</td></tr>
+<tr><td>Materiais permitidos</td><td>PET, cartão, plástico, madeira leve, espuma, tecido, fio e fita adesiva</td></tr>
+<tr><td>Materiais proibidos</td><td>Metal, vidro e peças rígidas pontiagudas ou cortantes</td></tr>
+<tr><td>Paraquedas</td><td>Opcional</td></tr>
+<tr><td>Eletrónica</td><td>Só para registo (câmara, altímetro). Não pode controlar a trajetória.</td></tr>
+</table></div>
+<p class="lead" style="margin-top:16px">Cada equipa apresenta um único foguete, que pode ser reparado entre lançamentos e volta à inspeção antes do seguinte.</p>
+</div></section>
+
+<section id="pontos"><div class="wrap">
+<h2>Como se ganha</h2>
+<p class="lead">100 pontos: 50 medidos em voo e 50 atribuídos pelo Júri.</p>
+<div class="bar" role="img" aria-label="Altitude 35, Tempo de voo 15, Projeto técnico 30, Apresentação 20">
+<div style="flex:35;background:#1F7A9E">Altitude<small>35</small></div>
+<div style="flex:15;background:#0B2545">Voo<small>15</small></div>
+<div style="flex:30;background:#C2410C">Projeto<small>30</small></div>
+<div style="flex:20;background:#6B4C9A">Apres.<small>20</small></div>
+</div>
+<div class="grid">
+<div class="box"><h3>Altitude (35)</h3><p>Medida por triangulação com dois observadores: h = d × tan θ.</p></div>
+<div class="box"><h3>Tempo de voo (15)</h3><p>Do momento em que sai da plataforma até tocar no solo, medido por dois cronometristas.</p></div>
+<div class="box"><h3>Projeto técnico (30)</h3><p>Fundamentação física e cálculos (12), originalidade (10) e qualidade de construção (8), a partir da memória descritiva.</p></div>
+<div class="box"><h3>Apresentação (20)</h3><p>Clareza (8), domínio dos conceitos (8) e participação de todos os elementos (4).</p></div>
+</div>
+
+<div class="box" style="margin-top:24px">
+<h3>Calculadora de pontos em voo</h3>
+<p>Nos critérios medidos, a pontuação é proporcional ao melhor resultado do Concurso.</p>
+<div class="calc">
+<label>A tua altitude (m)<input id="h" type="number" min="0" step="any" value="30" inputmode="decimal"></label>
+<label>Maior altitude (m)<input id="hm" type="number" min="0" step="any" value="40" inputmode="decimal"></label>
+<label>O teu tempo (s)<input id="t" type="number" min="0" step="any" value="4" inputmode="decimal"></label>
+<label>Maior tempo (s)<input id="tm" type="number" min="0" step="any" value="5" inputmode="decimal"></label>
+</div>
+<p class="res" aria-live="polite">Altitude: <span id="pa">26,25</span> / 35 &nbsp; Tempo de voo: <span id="pv">12,00</span> / 15</p>
+</div>
+<p class="lead" style="margin-top:20px">Vence a maior pontuação total. Em caso de empate, conta a pontuação em Altitude. O 1.º lugar recebe um prémio monetário (valor a definir); todos os participantes recebem certificado.</p>
+</div></section>
+
+<section id="seguranca" class="safety"><div class="wrap">
+<h2>Segurança primeiro</h2>
+<div class="grid">
+<div class="box"><h3>Inspeção</h3><p>Nenhum foguete é lançado sem aprovação. Depois de aprovado, não pode ser alterado.</p></div>
+<div class="box"><h3>Zona de lançamento</h3><p>Só com autorização e óculos de proteção. Público e equipas ficam atrás da linha de segurança.</p></div>
+<div class="box"><h3>Proibido</h3><p>Combustíveis, reações químicas, pirotecnia e explosivos. Nunca te aproximes de um foguete pressurizado sem autorização.</p></div>
+<div class="box"><h3>Testes na escola</h3><p>Fazem-se em espaço aberto e seguro, com a supervisão do docente responsável.</p></div>
+</div>
+<p>O Responsável de Segurança, docente do ISEP, pode suspender ou cancelar lançamentos. As suas decisões são imediatas e definitivas.</p>
+</div></section>
+
+<section id="faq"><div class="wrap">
+<h2>Perguntas frequentes</h2>
+<details><summary>Quantas equipas pode ter a minha escola?</summary><p>Não há limite. O mesmo docente pode acompanhar várias equipas.</p></details>
+<details><summary>Posso fazer o foguete com ajuda?</summary><p>Podes receber orientação do docente e do mentor, mas a construção é da equipa. Um foguete que não tenha sido construído pela equipa leva à desqualificação.</p></details>
+<details><summary>Quantos lançamentos tenho?</summary><p>Dois, e conta o melhor resultado válido. Se a plataforma falhar, o lançamento repete-se.</p></details>
+<details><summary>O que acontece se o foguete sair do campo de visão?</summary><p>A medida que não puder ser realizada não conta nesse lançamento.</p></details>
+<details><summary>Como faço uma reclamação sobre a classificação?</summary><p>O docente responsável envia-a por escrito até 30 minutos depois da classificação provisória. O Júri decide antes da entrega de prémios.</p></details>
+<details><summary>E as autorizações e imagens?</summary><p>Os menores precisam da autorização do encarregado de educação. Recusar a autorização de imagem não impede a participação.</p></details>
+</div></section>
+
+<footer id="contacto"><div class="wrap">
+<h2 style="font-size:1.6rem">Contacto</h2>
+<p>Núcleo de Estudantes de Engenharia Física do ISEP<br><a href="mailto:xxxxxxx@isep.ipp.pt">xxxxxxx@isep.ipp.pt</a> <span style="opacity:.7">(endereço a confirmar)</span></p>
+<p style="opacity:.7">Este site é informativo. Em caso de divergência, prevalece o Regulamento.</p>
+</div></footer>
+
+<script>
+(function(){
+var f=function(n){return n.toLocaleString("pt-PT",{minimumFractionDigits:2,maximumFractionDigits:2})};
+function g(id){return parseFloat(document.getElementById(id).value)||0}
+function calc(){
+var a=g("hm")>0?35*g("h")/g("hm"):0, v=g("tm")>0?15*g("t")/g("tm"):0;
+document.getElementById("pa").textContent=f(a);
+document.getElementById("pv").textContent=f(v);
+}
+["h","hm","t","tm"].forEach(function(i){document.getElementById(i).addEventListener("input",calc)});
+calc();
+})();
+</script>
+</body>
+</html>
